@@ -1,8 +1,13 @@
 version: "3"
 services:
   nginx:
+    container_name: nginx
+    network_mode: host
     image: nginx
     ports:
-      - "8080:80"
+      - "80:80"
+      - "443:443"
     volumes:
-      - ./public:/usr/share/nginx/html'
+      - /etc/certs:/etc/certs:z
+      - ./conf:/etc/nginx/conf.d:z
+      - ./public:/usr/share/nginx/html:z

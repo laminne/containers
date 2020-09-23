@@ -8,6 +8,6 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - /etc/certs:/etc/certs:z
+      - /etc/letsencrypt/live:/etc/certs:z
       - ./conf:/etc/nginx/conf.d:z
       - ./public:/usr/share/nginx/html:z

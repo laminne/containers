@@ -2,11 +2,14 @@ version: "3"
 services:
   nginx:
     container_name: nginx
-    network_mode: host
+    network_mode: shared
+    environment:
+      VIRTUAL_HOST: clappdon.work
+    restart: always
     image: nginx
-    ports:
-      - "80:80"
-      - "443:443"
+    # ports:
+    #   - "80:80"
+    #   - "443:443"
     volumes:
       # - /etc/letsencrypt/live:/etc/letsencrypt/live:z
       - ./conf:/etc/nginx/conf.d:z
